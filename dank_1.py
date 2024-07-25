@@ -1,5 +1,7 @@
 import random
 
+from config_handler import load_data, save_data
+
 print("\nWelcome to Dank memer playground")
 
 while True:
@@ -15,10 +17,8 @@ while True:
     else:
         print("\nInvalid Input!\nPlease try again.")
 
-
-balance = 0
-
 while True:
+    data = load_data()  # Load data at the start of each iteration
     print("\n1. Get started")
     print("2. Show balance")
     print("3. Beg")
@@ -28,15 +28,17 @@ while True:
 
     if choice == "1":
         get_started = random.randint(1, 1000)
-        balance += get_started
+        data["balance"] += get_started
+        save_data(data)  # Save the changes
         print(f"\nYou got started with {get_started} coins!")
 
     elif choice == "2":
-        print(f"\nYour balance is {balance}")
+        print(f"\nYour balance is {data["balance"]}")
 
     elif choice == "3":
         beg = random.randint(1, 1000)
-        balance += beg
+        data["balance"] += beg
+        save_data(data)  # Save the changes
         print(f"\nOh you little poor soul, here have {beg}")
 
     elif choice == "4":
@@ -44,8 +46,9 @@ while True:
 
         if outcome == 'successful':
             bankrob = random.randint(1, 100000)
-            balance += bankrob  # Add to balance, not bankrob += balance
-            print(f"\nYou robbed the bank successfully and found {bank_rob}")
+            data["balance"] += bankrob
+            save_data(data)  # Save the changes
+            print(f"\nYou robbed the bank successfully and found {bankrob}")
 
         else:
             print("\nYou got caught and arrested :(")
