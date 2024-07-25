@@ -1,47 +1,58 @@
 import random
 
-def main():
-    print("Welcome to Dank memer playground")
+print("\nWelcome to Dank memer playground")
 
-playing = input("Do you want to play game? ")
-if playing.lower() == "yes":
-    print("Okay let's play!")
-else:
-    quit()
+while True:
+    playing = input("\nDo you want to play? ( Yes or No ) ").lower()
+
+    if playing == "yes":
+        print("\nOkay let's play!")
+        break
+
+    elif playing == "no":
+        quit()
+
+    else:
+        print("\nInvalid Input!\nPlease try again.")
+
 
 balance = 0
 
 while True:
-    print("1. Get started ")
-    print("2. Show balance ")
+    print("\n1. Get started")
+    print("2. Show balance")
     print("3. Beg")
     print("4. Bankrob")
-    print("5. Quit")
-    choice = int(input("Enter your choice: "))
+    print("5. Quit\n")
+    choice = input("Enter your choice: ")
 
-    if choice == 1:
+    if choice == "1":
         get_started = random.randint(1, 1000)
         balance += get_started
-        print("You got started with ", get_started, " coins")
-    elif choice == 2:
-        print("Your balance is ", balance)
-    elif choice == 3:
+        print(f"\nYou got started with {get_started} coins!")
+
+    elif choice == "2":
+        print(f"\nYour balance is {balance}")
+
+    elif choice == "3":
         beg = random.randint(1, 1000)
         balance += beg
-        print("Oh you little poor soul, here have", beg)
+        print(f"\nOh you little poor soul, here have {beg}")
 
-    elif choice == 4:
+    elif choice == "4":
         outcome = random.choice(['successful', 'unsuccessful'])
+
         if outcome == 'successful':
             bankrob = random.randint(1, 100000)
             balance += bankrob  # Add to balance, not bankrob += balance
-            print("You robbed the bank successfully and you got", bankrob)
+            print(f"\nYou robbed the bank successfully and found {bank_rob}")
+
         else:
-            print("You got caught and arrested")
+            print("\nYou got caught and arrested :(")
 
-    elif choice == 5:
-        print("Thanks for playing")
+    elif choice == "5":
+        print("\nThanks for playing")
         quit()
-        
 
-main()
+    else:
+        print("\nInvalid Input!\nPlease try again.")
