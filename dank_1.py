@@ -1,3 +1,4 @@
+
 import random
 
 from config_handler import load_data, save_data
@@ -58,4 +59,7 @@ while True:
         quit()
 
     else:
+
+
+
         print("\nInvalid Input!\nPlease try again.")
