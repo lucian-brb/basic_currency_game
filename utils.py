@@ -7,6 +7,7 @@ data = load_data()
 
 
 
+
 def get_started():
     initial_balance = random.randint(1, 1000)  # or any other logic to determine the initial balance
     return initial_balance
@@ -14,7 +15,5 @@ def get_started():
 
         
     
-        
-        
         
         
